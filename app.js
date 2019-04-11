@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from 'cors';
+import cors from 'cors'
 
 const app = express();
 app.use(cors());
@@ -13,4 +13,7 @@ app.locals.scenarios = [
   { id: 'a', title: 'You are asked for documents', detail: 'Detail for this scenario'}
 ]
 
-export default app;
+app.get('/api/v1/rights', (request, response) => {
+  response.status(200).json(app.locals.rights)
+})
+export default app
